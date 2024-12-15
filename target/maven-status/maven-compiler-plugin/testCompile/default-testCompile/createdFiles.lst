@@ -1,2 +1,4 @@
+testRunner\TestSuite.class
 testRunner\ApiTestRunner.class
 testRunner\TestRunner.class
+testRunner\JVMReportGenerator.class
