@@ -1,0 +1,13 @@
+ApiAutomation\pojoClasses\CoinDeskResponse.class
+ApiAutomation\Util\CoinException.class
+ApiAutomation\pojoClasses\Time.class
+eBayProject\Pages\SearchPage.class
+eBayProject\Util\eBayException.class
+ApiAutomation\Util\CoinUtility.class
+ApiAutomation\StepDefinition\coinDeskStepDefinition.class
+ApiAutomation\pojoClasses\Bpi.class
+ApiAutomation\pojoClasses\ResponsePackage.class
+eBayProject\StepDefinition\LogineBayStepDefinition.class
+eBayProject\Util\CommonMethods.class
+eBayProject\Pages\LoginPage.class
+eBayProject\Pages\singletonDesignPattern.class
