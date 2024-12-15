@@ -8,3 +8,4 @@ Feature: Verify the Bpi's in Coin Desk Api
     |USD|
     |GBP|
     |EUR|
+    And I validate description "British Pound Sterling" for bpi  "GPB"

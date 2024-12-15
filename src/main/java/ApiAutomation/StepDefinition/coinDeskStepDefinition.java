@@ -27,6 +27,8 @@ public class coinDeskStepDefinition {
 
     private CoinDeskResponse coinDeskResponse;
 
+    public coinDeskStepDefinition()
+    {}
     public coinDeskStepDefinition(CoinDeskResponse coinDeskResponse)
     {
         this.coinDeskResponse = coinDeskResponse;
@@ -50,7 +52,11 @@ public class coinDeskStepDefinition {
         JsonPath path = new JsonPath(response.body().asString());
        for (String list: listOfBpi) {
             String value = path.getString("bpi" + "." + list);
-            Assert.assertNotNull(value);
+            if(list.equalsIgnoreCase("GBP"))
+            {
+                Assert.assertEquals(path.getString("bpi.GBP.description"),"British Pound Sterling");
+            }
+             Assert.assertNotNull(value);
         }
 
        //Validation using Pojo class
@@ -59,5 +65,21 @@ public class coinDeskStepDefinition {
         for (String list: listOfBpi) {
             Assert.assertTrue(res.containsKey(list));
         }
+
+
+    }
+
+    @And("I validate description {string} for bpi  {string}")
+    public void iValidateDescriptionForBpi(String description, String bpi) throws CoinException {
+        coinDeskResponse = coinUtility.JsonConvert(response);
+        Map<String, Bpi> res = coinDeskResponse.getBpi();
+        for (Map.Entry<String,Bpi> test: res.entrySet()) {
+            if(test.getKey() == bpi)
+            {
+                Assert.assertEquals(test.getValue().getDescription(),description);
+            }
+
+        }
+
     }
 }
